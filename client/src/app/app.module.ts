@@ -10,24 +10,24 @@ import { ProfileComponent } from './profile/profile.component';
 import { ViewComponent } from './view/view.component';
 import { InteractionsComponent } from './interactions/interactions.component';
 
-// const routes: Routes = [
-//   {
-//     path: 'register',
-//     component: RegisterComponent
-//   },
-//   {
-//     path: 'profile/:id',
-//     component: ProfileComponent
-//   },
-//   {
-//     path: 'view',
-//     component: ViewComponent
-//   },
-//   {
-//     path: 'interactions/:id',
-//     component: InteractionsComponent
-//   }
-// ]
+const routes: Routes = [
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'profile/:id',
+    component: ProfileComponent
+  },
+  {
+    path: 'view',
+    component: ViewComponent
+  },
+  {
+    path: 'interactions/:id',
+    component: InteractionsComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -40,8 +40,8 @@ import { InteractionsComponent } from './interactions/interactions.component';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
-    // RouterModule.forRoot(routes)
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
