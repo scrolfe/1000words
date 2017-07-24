@@ -15,5 +15,5 @@ ActiveRecord::Base.establish_connection(
   database: 'one_thousand_words'
 )
 
-map('/user'){run UserController}
-map('/message'){run MessageController}
+map('/users'){run UserController}
+map('/messages'){run MessageController}
