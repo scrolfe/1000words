@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Router } from '@angular/router';
 
 class User{
   email: string;
@@ -13,6 +15,7 @@ class User{
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.css']
 })
+
 export class WelcomeComponent implements OnInit {
 
   constructor() { }
@@ -20,7 +23,7 @@ export class WelcomeComponent implements OnInit {
   ngOnInit() {
   }
 
-  postWelcome(){
-    this.http.post()
-  }
+  // postWelcome(){
+  //   this.http.post()
+  // }
 }

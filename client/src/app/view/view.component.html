@@ -1,3 +1,12 @@
 <h1>Choose "like" or "pass" to move to the next reading!</h1>
 
-<div [(ngModel)]="user.bio"></div>
+<table>
+
+<tr class="bio" *ngFor="let user of users">
+  <td>{{user.email}}</td>
+  <td>{{user.bio}}</td>
+</tr>
+<button (click)="likeResponse()">Like</button>
+<button (click)="passResponse()">Pass</button>
+
+</table>

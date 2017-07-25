@@ -22,20 +22,20 @@ export class InteractionsComponent implements OnInit {
   ngOnInit() {
   }
 
-  getInteraction(){
-    this.http.get()
-  }
-
-  postInteraction(){
-    this.http.post()
-  }
-
-  patchInteraction(){
-    this.http.patch()
-  }
-
-  deleteInteraction(){
-    this.http.delete()
-  }
+  // getInteraction(){
+  //   this.http.get()
+  // }
+  //
+  // postInteraction(){
+  //   this.http.post()
+  // }
+  //
+  // patchInteraction(){
+  //   this.http.patch()
+  // }
+  //
+  // deleteInteraction(){
+  //   this.http.delete()
+  // }
 
 }

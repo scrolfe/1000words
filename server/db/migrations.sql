@@ -9,7 +9,7 @@ CREATE TABLE users (id SERIAL PRIMARY KEY,
   bio TEXT,
   photo_url VARCHAR(255));
 
-CREATE TABLE responses (id SERIAL PRIMARY KEY,
+CREATE TABLE reactions (id SERIAL PRIMARY KEY,
   reader_id INTEGER REFERENCES users(id),
   writer_id INTEGER REFERENCES users(id));
 
@@ -25,6 +25,6 @@ INSERT INTO users (email, password, contact_info, bio, photo_url) VALUES ('sam1@
 
 INSERT INTO messages (subject, body, recipient_id, sender_id) VALUES ('welcome', 'welcome to the app', 1, 2);
 
-INSERT INTO responses (reader_id, writer_id) VALUES ('1', '2');
+INSERT INTO reactions (reader_id, writer_id) VALUES ('1', '2');
 
--- INSERT INTO repsonses (reader_id, writer_id) VALUES ('2', '1');
+-- INSERT INTO reactions (reader_id, writer_id) VALUES ('2', '1');
