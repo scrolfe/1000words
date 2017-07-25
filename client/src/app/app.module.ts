@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ViewComponent } from './view/view.component';
 import { InteractionsComponent } from './interactions/interactions.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'interactions/:id',
     component: InteractionsComponent
+  },
+  {
+    path: 'welcome',
+    component: WelcomeComponent
   }
 ]
 
@@ -35,7 +40,8 @@ const routes: Routes = [
     RegisterComponent,
     ProfileComponent,
     ViewComponent,
-    InteractionsComponent
+    InteractionsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
