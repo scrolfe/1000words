@@ -1,12 +1,11 @@
-<h1>Choose "like" or "pass" to move to the next reading!</h1>
+<h4 style="text-align: center;">Choose "like" or "pass" to move to the next reading!
 
-<table>
+  <a (click)="logout()" href="#" style="float:right;"> Log out </a>
 
-<tr class="bio" *ngFor="let user of users">
-  <td>{{user.email}}</td>
-  <td>{{user.bio}}</td>
-</tr>
-<button (click)="likeResponse()">Like</button>
-<button (click)="passResponse()">Pass</button>
+</h4>
 
-</table>
+<div style="background-color: grey;border-radius: 30px;padding: 25px;text-align:center;">
+  <p style="text-align:left;">{{users[0].bio}}</p>
+  <button (click)="likeReaction(user)">Like</button>
+  <button>Pass</button>
+</div>

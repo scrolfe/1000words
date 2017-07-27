@@ -1,7 +1,8 @@
+<h2>Welcome to 1000 Words! Please register by entering your information below:</h2>
 <input [(ngModel)]="user.email" placeholder="Email"/><br>
 <input [(ngModel)]="user.password" placeholder="Password"/><br>
 <input [(ngModel)]="user.contact_info" placeholder="How you want to connect:" style="width:200px;"/><br>
 <input [(ngModel)]="user.photo_url" placeholder="Photo URL"/>
 <br>
-<textarea placeholder="Place your snippet here" rows=6 cols=75></textarea><br>
-<button (click)="register()">Submit</button>
+<textarea [(ngModel)]="user.bio" placeholder="Place your snippet here" rows=6 cols=75></textarea><br>
+<button (click)="postRegister()">Submit</button>

@@ -7,7 +7,7 @@ CREATE TABLE users (id SERIAL PRIMARY KEY,
   password VARCHAR(255),
   contact_info VARCHAR(255),
   bio TEXT,
-  photo_url VARCHAR(255));
+  photo_url VARCHAR(255);
 
 CREATE TABLE reactions (id SERIAL PRIMARY KEY,
   reader_id INTEGER REFERENCES users(id),
@@ -28,3 +28,5 @@ INSERT INTO messages (subject, body, recipient_id, sender_id) VALUES ('welcome',
 INSERT INTO reactions (reader_id, writer_id) VALUES ('1', '2');
 
 -- INSERT INTO reactions (reader_id, writer_id) VALUES ('2', '1');
+
+ALTER TABLE users ADD COLUMN token VARCHAR(255);

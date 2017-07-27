@@ -1,36 +1,45 @@
+require "SecureRandom"
+
 class UserController < ApplicationController
+
   get '/' do
-    users = User.all()
+    response['Access-Control-Allow-Origin'] = '*'
+    users = User.all
     users.to_json
   end
 
-  get '/:id' do
-    id = params[:id]
+  get '/:token' do
+    response['Access-Control-Allow-Origin'] = '*'
+    id = params[:token]
     user = User.find(id)
     user.to_json
   end
 
   post '/' do
+    response['Access-Control-Allow-Origin'] = '*'
     user_content = JSON.parse(request.body.read)
     user = User.new(user_content)
+    user.token = SecureRandom.hex
     user.save
-    User.all.to_json
+    user.to_json
   end
 
   patch '/:id' do
+    response['Access-Control-Allow-Origin'] = '*'
     id = params[:id]
-    user_content = JSON.parse(request.body.read)
     user = User.find(id)
+    user_content = JSON.parse(request.body.read)
     user.update_attributes(user_content)
     user.save
     User.all.to_json
   end
 
   delete '/:id' do
+    response['Access-Control-Allow-Origin'] = '*'
     id = params[:id]
     user = User.find(id)
     user.destroy
-    users.to_json
+    User.all.to_json
   end
 end
 

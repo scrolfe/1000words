@@ -17,15 +17,15 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'profile/:id',
+    path: 'profile',
     component: ProfileComponent
   },
   {
-    path: 'view/:id',
+    path: 'view',
     component: ViewComponent
   },
   {
-    path: 'interactions/:id',
+    path: 'interactions',
     component: InteractionsComponent
   },
   {

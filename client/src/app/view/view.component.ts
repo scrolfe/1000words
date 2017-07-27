@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router } from '@angular/router';
 
 class User{
-  id: string;
+  id: number;
   email: string;
   password: string;
   contact_info: string;
@@ -12,8 +12,9 @@ class User{
 }
 
 class Reaction{
-  reader_id: string;
-  writer_id: string;
+  id: number;
+  reader_id: number;
+  writer_id: number;
 }
 
 @Component({
@@ -22,66 +23,68 @@ class Reaction{
   styleUrls: ['./view.component.css']
 })
 
-export class ViewComponent implements OnInit {
+export class ViewComponent {
   users: User[] = [];
-  user: User = new User();
-  responses: Reaction[] = [];
+  reactions: Reaction[] = [];
   newReaction: Reaction = new Reaction();
-  updateReaction: Reaction = new Reaction();
+  // updateReaction: Reaction = new Reaction();
 
-  constructor(private http: Http, private router: Router) {
-    this.getBio()
+  constructor(private http: Http, private router: Router){
+    this.getUsers();
   }
 
-  ngOnInit(){
-
-  }
-
-  getBio(){
-    this.http.get('http://localhost:4200/view' + this.user.id).subscribe(response => {
-      this.user = response.json() //use just bio
+  getUsers(){
+    console.log('here')
+    this.http.get('http://localhost:9393/users').subscribe(response => {
+      this.users = response.json() // bios loaded into json array
     },
     err => {
-      console.log('error')
+      console.log('getUsers error')
     })
   }
 
-  postResponse(){
-    this.http.post('http://localhost:4200/view', this.newReaction).subscribe(response => {
-      this.users = response.json() // handles 'swipes' one way or another
+  postReaction(){
+    this.http.post('http://localhost:9393/reactions', this.newReaction).subscribe(response => {
+      this.reactions = response.json()
     },
     err => {
-      console.log('error')
+      console.log('postReaction error')
     })
   }
 
-  patchView(){
-    this.http.patch('http://localhost:4200/view', this.updateReaction).subscribe(response => {
-      this.users = response.json()
-    },
-    err => {
-      console.log('error')
-    })
-  }
+  // patchReaction(){
+  //   this.http.patch('http://localhost:9393/users', this.updateReaction).subscribe(response => {
+  //     this.users = response.json()
+  //   },
+  //   err => {
+  //     console.log('error')
+  //   })
+  // }
 
-  deleteView(){
-    this.http.delete('http://localhost:4200/view').subscribe(response => {
-
-    },
-    err => {
-      console.log('error')
-    })
-  }
+  // deleteReaction(){
+  //   this.http.delete('http://localhost:9393/users').subscribe(response => {
+  //
+  //   },
+  //   err => {
+  //     console.log('error')
+  //   })
+  // }
 
   // TODO:
-  // likeReaction(){
+  // randomBio(){
   //
   // }
   //
+  likeReaction(user){
+    // grab ID of current user. push that id as reader_id for bio of sender_id
+    user.id = this.newReaction.writer_id;
+    user.token = this.newReaction.reader_id; //how to specifically pull user id of this particular token? (also be sure to test this token actually works)
+  }
+
   // passReaction(){
-  //
+  //   this.reaction.;
   // }
-  //
+
   // mutualLike(){
   //
   // }

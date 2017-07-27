@@ -16,6 +16,7 @@ class User{
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+  user = {}
 
   constructor(private http: Http, private router: Router) { }
 
@@ -23,19 +24,17 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(){
-    this.http.get()
+    this.http.get('http://localhost:9393/users/' + user.token).subscribe(response =>{
+
+    })
   }
 
-  postProfile(){
-    this.http.post()
-  }
-
-  patchProfile(){
-    this.http.patch()
-  }
-
-  deleteProfile(){
-    this.http.delete()
-  }
+  // patchProfile(){
+  //   this.http.patch()
+  // }
+  //
+  // deleteProfile(){
+  //   this.http.delete()
+  // }
 
 }

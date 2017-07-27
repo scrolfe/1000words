@@ -1,23 +1,32 @@
 class ReactionController < ApplicationController
   get '/' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     reactions = Reaction.all()
     reactions.to_json
   end
 
   get '/:id' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     id = params[:id]
     reaction = Reaction.find(id)
     reaction.to_json
   end
 
   post '/' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     reaction_content = JSON.parse(request.body.read)
     reaction = Reaction.new(reaction_content)
     reaction.save
     Reaction.all.to_json
+    token = params[:token]
   end
 
   patch '/:id' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     id = params[:id]
     reaction_content = JSON.parse(request.body.read)
     reaction = Reaction.find(id)
@@ -27,6 +36,8 @@ class ReactionController < ApplicationController
   end
 
   delete '/:id' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     id = params[:id]
     reaction = Reaction.find(id)
     reaction.destroy

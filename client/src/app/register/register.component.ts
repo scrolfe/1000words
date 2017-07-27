@@ -25,24 +25,12 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  getRegister(){
-    this.http.get()
-  }
-
   postRegister(){
-    this.http.post()
+    this.http.post('http://localhost:9393/users', this.user).subscribe(response => {
+      window.localStorage.setItem('token',response.json().token)
+      this.router.navigate(['/profile'])
+    }, err => {
+      console.log('postRegister error')
+    })
   }
-
-  patchRegister(){
-    this.http.patch()
-  }
-
-  deleteRegister(){
-    this.http.delete()
-  }
-
-  register(){
-
-  }
-
 }

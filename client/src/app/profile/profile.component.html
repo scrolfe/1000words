@@ -1,5 +1,23 @@
-<h1>Your Profile</h1>
-<p>Photo Here</p>
-<h2>Your snippet:</h2>
-<h3 [(ngModel)]="user.bio"></h3>
-<button>Save</button><button>Edit</button>
+<h2>Profile
+  <button style="float: right;">Log out</button>
+</h2>
+
+<h3>Email: {{users.email}}</h3>
+<button (click)="editEmail()">Edit</button>
+<br>
+<h3> Change Password <br>
+  <input placeholder='current password'/><br>
+  <input placeholder='new password'/><br>
+  <input placeholder='confirm new password' /><br>
+  <button (click)="changePassword()">Submit</button>
+</h3>
+<h3> Your profile picture: </h3>
+<img src="{{users.image_url}}" />
+<button (click)="editPic()">Edit</button>
+<!-- <button type="upload">Change Photo</button> -->
+
+<h3>Contact info:{{user.contact_info}}</h3>
+<button (click)="editContact()">Edit</button>
+<h3>Your bio:</h3>
+<h4>{{users.bio}}</h4>
+<button (click)="editBio()">Edit</button>
