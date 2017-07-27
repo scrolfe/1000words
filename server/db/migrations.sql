@@ -7,7 +7,7 @@ CREATE TABLE users (id SERIAL PRIMARY KEY,
   password VARCHAR(255),
   contact_info VARCHAR(255),
   bio TEXT,
-  photo_url VARCHAR(255);
+  photo_url VARCHAR(255));
 
 CREATE TABLE reactions (id SERIAL PRIMARY KEY,
   reader_id INTEGER REFERENCES users(id),
@@ -18,6 +18,10 @@ CREATE TABLE messages (id SERIAL PRIMARY KEY,
   body TEXT,
   recipient_id INTEGER REFERENCES users(id),
   sender_id INTEGER REFERENCES users(id));
+
+CREATE TABLE friends (id SERIAL PRIMARY KEY,
+  friend1_id INTEGER REFERENCES users(id),
+  friend2_id INTEGER REFERENCES users(id));
 
 INSERT INTO users (email, password, contact_info, bio, photo_url) VALUES ('sam@sam.com', 'sam', 'find me at facebook.com/self', 'test bio plus 994 more words', '#');
 

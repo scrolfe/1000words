@@ -24,9 +24,11 @@ class Reaction{
 })
 
 export class ViewComponent {
+  user = {};
   users: User[] = [];
   reactions: Reaction[] = [];
   newReaction: Reaction = new Reaction();
+  userIterator: number = 0
   // updateReaction: Reaction = new Reaction();
 
   constructor(private http: Http, private router: Router){
@@ -37,6 +39,7 @@ export class ViewComponent {
     console.log('here')
     this.http.get('http://localhost:9393/users').subscribe(response => {
       this.users = response.json() // bios loaded into json array
+      this.user = this.users[this.userIterator]
     },
     err => {
       console.log('getUsers error')
@@ -79,6 +82,9 @@ export class ViewComponent {
     // grab ID of current user. push that id as reader_id for bio of sender_id
     this.http.post('http://localhost:9393/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
       console.log(response)
+      this.userIterator += 1
+      this.user = this.users[this.userIterator]
+
     })
   }
 

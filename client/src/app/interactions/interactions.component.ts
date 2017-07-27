@@ -17,14 +17,20 @@ class User{
 })
 export class InteractionsComponent implements OnInit {
   user = {}
+  users: User[] = []
 
-  constructor(private http: Http, private router: Router) {  }
-    getInteraction();
+  constructor(private http: Http, private router: Router) {
+    this.getInteraction();
+  }
   ngOnInit() {
   }
   //
   getInteraction(){
-    this.http.get('http://localhost:9393/reactions/' + window.localStorage.token)
+    console.log('hi')
+    this.http.get('http://localhost:9393/reactions/' + window.localStorage.token).subscribe(response => {
+      console.log(response.json())
+      this.users = response.json()
+    })
   }
 
   // postInteraction(){

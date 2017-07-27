@@ -4,6 +4,7 @@ Bundler.require
 require './models/MessageModel'
 require './models/UserModel'
 require './models/ReactionModel'
+require './models/FriendModel'
 
 require './controllers/ApplicationController'
 require './controllers/MessageController'
@@ -20,3 +21,4 @@ ActiveRecord::Base.establish_connection(
 map('/users'){run UserController}
 map('/messages'){run MessageController}
 map('/reactions'){run ReactionController}
+# map('/friends'){run }
