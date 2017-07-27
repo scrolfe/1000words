@@ -13,6 +13,8 @@ class ReactionController < ApplicationController
     user = User.find_by(token: token)
     reactions = user.likes
     reactions.to_json
+    # friends = user.friends #
+    # friends.to_json #
   end
 
   post '/' do

@@ -1,13 +1,13 @@
 <h2>Interactions
   <button style="float: right;">Log out</button>
 </h2>
+<h4>Bios you liked:</h4>
+  <div *ngFor="let user of users">
+    {{user.bio}}
+  </div>
 
-<div *ngFor="let user of users">
 
-{{user.bio}}
-</div>
-  <!-- 'like' reaction history from you -->
-
-  <!-- 'like' reaction history from others -->
-
-  <!-- 'Like' reaction history for you and others -->
+<h4>My Friends</h4>
+  <div>
+    {{user.contact_info}}
+  </div>

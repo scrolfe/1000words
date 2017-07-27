@@ -1,4 +1,4 @@
-CREATE DATABASE one_thousand_words;
+fCREATE DATABASE one_thousand_words;
 
 \c one_thousand_words
 

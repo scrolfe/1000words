@@ -10,6 +10,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { ViewComponent } from './view/view.component';
 import { InteractionsComponent } from './interactions/interactions.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { FriendsComponent } from './friends/friends.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'welcome',
     component: WelcomeComponent
+  },
+  {
+    path: 'friends',
+    component: FriendsComponent
   }
 ]
 
@@ -41,7 +46,8 @@ const routes: Routes = [
     ProfileComponent,
     ViewComponent,
     InteractionsComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    FriendsComponent
   ],
   imports: [
     BrowserModule,

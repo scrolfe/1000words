@@ -16,6 +16,15 @@ class UserController < ApplicationController
     user.to_json
   end
 
+  get '/friends/:token' do
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
+    token = params[:token]
+    user = User.find_by(token: token)
+    friends = user.friends
+    friends.to_json
+  end
+
   post '/' do
     response['Access-Control-Allow-Origin'] = '*'
     user_content = JSON.parse(request.body.read)

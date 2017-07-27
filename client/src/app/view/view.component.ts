@@ -82,8 +82,8 @@ export class ViewComponent {
     // grab ID of current user. push that id as reader_id for bio of sender_id
     this.http.post('http://localhost:9393/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
       console.log(response)
-      this.userIterator += 1
       this.user = this.users[this.userIterator]
+      this.userIterator += 1
 
     })
   }

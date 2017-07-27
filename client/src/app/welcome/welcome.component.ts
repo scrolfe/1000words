@@ -17,13 +17,19 @@ class User{
 })
 
 export class WelcomeComponent implements OnInit {
+  user = {};
 
-  constructor() { }
+  constructor(private http: Http, private router: Router) { }
+
 
   ngOnInit() {
   }
 
-  // postWelcome(){
-  //   this.http.post()
-  // }
+
+  login(){
+    this.http.post('http://localhost:9393/users/', this.user).subscribe(response => {
+      window.localStorage.setItem("token",response.json().token)
+      this.router.navigate(['/profile'])
+    })
+  }
 }

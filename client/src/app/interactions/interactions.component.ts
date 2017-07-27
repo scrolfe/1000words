@@ -33,6 +33,8 @@ export class InteractionsComponent implements OnInit {
     })
   }
 
+  // how can I pull user.contact_info of friends?
+
   // postInteraction(){
   //   this.http.post()
   // }
