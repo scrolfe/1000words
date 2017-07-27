@@ -33,6 +33,11 @@ export class InteractionsComponent implements OnInit {
     })
   }
 
+  logout(){
+    window.localStorage.clear()
+    this.router.navigate(['/welcome'])
+  }
+
   // how can I pull user.contact_info of friends?
 
   // postInteraction(){

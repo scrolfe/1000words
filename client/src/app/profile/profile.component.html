@@ -1,6 +1,10 @@
 <h2>Profile
-  <button style="float: right;">Log out</button>
+  <button (click)="logout()" style="float: right;">Log out</button>
 </h2>
+
+<a href='http://localhost:4200/view'>See someone's 1000</a> <br>
+
+<a href="http://localhost:4200/interactions">Your Interactions</a>
 
 <h3>Email: {{user.email}}</h3>
 <button (click)="editEmail()">Edit</button>

@@ -1,4 +1,10 @@
+<h3>If you and a friend like each other's bio, you'll see them listed here:</h3>
+
 <div *ngFor="let friend of friends">
-  {{friend.contact_info}}>
-  {{friend.bio}}
+  <p>Contact:{{friend.contact_info}}></p>
+  <p>Their bio:{{friend.bio}}</p>
 </div>
+
+<a href="http://localhost:4200/profile">Profile</a><br>
+<a href="http://localhost:4200/interactions">Your interactions</a><br>
+<a href="http://localhost:4200/view">See another bio</a>

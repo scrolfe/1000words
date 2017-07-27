@@ -33,6 +33,10 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  logout(){
+    window.localStorage.clear()
+    this.router.navigate(['/welcome'])
+  }
   // patchProfile(){
   //   this.http.patch()
   // }

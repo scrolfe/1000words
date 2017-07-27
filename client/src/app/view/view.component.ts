@@ -87,6 +87,10 @@ export class ViewComponent {
 
     })
   }
+  logout(){
+    window.localStorage.clear()
+    this.router.navigate(['/welcome'])
+  }
 
   // passReaction(){
   //   this.reaction.;
