@@ -6,12 +6,13 @@ class UserController < ApplicationController
     response['Access-Control-Allow-Origin'] = '*'
     users = User.all
     users.to_json
+
   end
 
   get '/:token' do
     response['Access-Control-Allow-Origin'] = '*'
-    id = params[:token]
-    user = User.find(id)
+    token = params[:token]
+    user = User.find_by(token: token)
     user.to_json
   end
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Http, Response } from '@angular/http'
+import { Http, Response } from '@angular/http'
+import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'
 
 class User{
@@ -18,14 +19,17 @@ class User{
 export class ProfileComponent implements OnInit {
   user = {}
 
-  constructor(private http: Http, private router: Router) { }
-
+  constructor(private route: ActivatedRoute, private http: Http, private router: Router) {
+    let id = this.route.snapshot.params.id;
+    this.getProfile();
+    console.log('here')
+  }
   ngOnInit() {
   }
 
   getProfile(){
-    this.http.get('http://localhost:9393/users/' + user.token).subscribe(response =>{
-
+    this.http.get('http://localhost:9393/users/' + window.localStorage.token).subscribe(response => {
+      this.user = response.json()
     })
   }
 

@@ -6,12 +6,13 @@ class ReactionController < ApplicationController
     reactions.to_json
   end
 
-  get '/:id' do
+  get '/:token' do
     response['Access-Control-Allow-Origin'] = '*'
     content_type :json
-    id = params[:id]
-    reaction = Reaction.find(id)
-    reaction.to_json
+    token = params[:token]
+    user = User.find_by(token: token)
+    reactions = user.reactions
+    reactions.to_json
   end
 
   post '/' do

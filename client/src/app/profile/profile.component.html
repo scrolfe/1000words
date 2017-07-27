@@ -2,7 +2,7 @@
   <button style="float: right;">Log out</button>
 </h2>
 
-<h3>Email: {{users.email}}</h3>
+<h3>Email: {{user.email}}</h3>
 <button (click)="editEmail()">Edit</button>
 <br>
 <h3> Change Password <br>
@@ -12,12 +12,12 @@
   <button (click)="changePassword()">Submit</button>
 </h3>
 <h3> Your profile picture: </h3>
-<img src="{{users.image_url}}" />
+<img src="{{user.image_url}}" />
 <button (click)="editPic()">Edit</button>
 <!-- <button type="upload">Change Photo</button> -->
 
 <h3>Contact info:{{user.contact_info}}</h3>
 <button (click)="editContact()">Edit</button>
 <h3>Your bio:</h3>
-<h4>{{users.bio}}</h4>
+<h4>{{user.bio}}</h4>
 <button (click)="editBio()">Edit</button>

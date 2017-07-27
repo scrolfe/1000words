@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   postRegister(){
     this.http.post('http://localhost:9393/users', this.user).subscribe(response => {
       window.localStorage.setItem('token',response.json().token)
+      window.localStorage.setItem('user_id', response.json().id)
       this.router.navigate(['/profile'])
     }, err => {
       console.log('postRegister error')

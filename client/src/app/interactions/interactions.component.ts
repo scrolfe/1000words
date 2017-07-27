@@ -16,16 +16,17 @@ class User{
   styleUrls: ['./interactions.component.css']
 })
 export class InteractionsComponent implements OnInit {
+  user = {}
 
-  constructor(private http: Http, private router: Router) { }
-
+  constructor(private http: Http, private router: Router) {  }
+    getInteraction();
   ngOnInit() {
   }
-
-  // getInteraction(){
-  //   this.http.get()
-  // }
   //
+  getInteraction(){
+    this.http.get('http://localhost:9393/reactions/' + window.localStorage.token)
+  }
+
   // postInteraction(){
   //   this.http.post()
   // }

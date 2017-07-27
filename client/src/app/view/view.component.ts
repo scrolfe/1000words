@@ -75,10 +75,11 @@ export class ViewComponent {
   //
   // }
   //
-  likeReaction(user){
+  likeReaction(writer_id){
     // grab ID of current user. push that id as reader_id for bio of sender_id
-    user.id = this.newReaction.writer_id;
-    user.token = this.newReaction.reader_id; //how to specifically pull user id of this particular token? (also be sure to test this token actually works)
+    this.http.post('http://localhost:9393/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
+      console.log(response)
+    })
   }
 
   // passReaction(){
