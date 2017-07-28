@@ -55,24 +55,6 @@ export class ViewComponent {
     })
   }
 
-  // patchReaction(){
-  //   this.http.patch('http://localhost:9393/users', this.updateReaction).subscribe(response => {
-  //     this.users = response.json()
-  //   },
-  //   err => {
-  //     console.log('error')
-  //   })
-  // }
-
-  // deleteReaction(){
-  //   this.http.delete('http://localhost:9393/users').subscribe(response => {
-  //
-  //   },
-  //   err => {
-  //     console.log('error')
-  //   })
-  // }
-
   // TODO:
   // randomBio(){
   //
@@ -87,14 +69,19 @@ export class ViewComponent {
 
     })
   }
-  logout(){
-    window.localStorage.clear()
-    this.router.navigate(['/welcome'])
+
+  passReaction(){
+    this.http.get('http://localhost:9393/reactions').subscribe(response => {
+      this.user = this.users[this.userIterator]
+      this.userIterator += 1
+    })
   }
 
-  // passReaction(){
-  //   this.reaction.;
-  // }
+  logout(){
+    window.localStorage.clear()
+    this.router.navigate(['http://localhost:4200/welcome'])
+  }
+
 
   // mutualLike(){
   //

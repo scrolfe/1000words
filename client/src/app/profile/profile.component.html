@@ -16,12 +16,14 @@
   <button (click)="changePassword()">Submit</button>
 </h3>
 <h3> Your profile picture: </h3>
-<img src="{{user.image_url}}" />
+<img src={{user.image_url}} alt="Profile Picture"/>
+<br>
 <button (click)="editPic()">Edit</button>
 <!-- <button type="upload">Change Photo</button> -->
 
-<h3>Contact info:{{user.contact_info}}</h3>
+<h3>Contact info:</h3>
+<p>{{user.contact_info}}</p>
 <button (click)="editContact()">Edit</button>
 <h3>Your bio:</h3>
-<h4>{{user.bio}}</h4>
+<h4 class="bio">{{user.bio}}</h4>
 <button (click)="editBio()">Edit</button>

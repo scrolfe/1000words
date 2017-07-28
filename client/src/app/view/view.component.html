@@ -4,13 +4,11 @@
 
 </h4>
 
-
-
 <div style="background-color: grey;border-radius: 30px;padding: 25px;text-align:center;" >
   <div>
   <p style="text-align:left;">{{user.bio}}</p>
   <button (click)="likeReaction(user.id)">Like</button>
-  <button>Pass</button>
+  <button (click)="passReaction()">Pass</button>
   </div>
 </div>
 

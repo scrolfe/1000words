@@ -1,6 +1,7 @@
 <h3>If you and a friend like each other's bio, you'll see them listed here:</h3>
 
 <div *ngFor="let friend of friends">
+  <img src={{friend.image_url}} />
   <p>Contact:{{friend.contact_info}}></p>
   <p>Their bio:{{friend.bio}}</p>
 </div>

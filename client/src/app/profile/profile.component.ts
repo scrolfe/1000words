@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http'
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'
 
 class User{
@@ -19,8 +18,7 @@ class User{
 export class ProfileComponent implements OnInit {
   user = {}
 
-  constructor(private route: ActivatedRoute, private http: Http, private router: Router) {
-    let id = this.route.snapshot.params.id;
+  constructor(private http: Http, private router: Router) {
     this.getProfile();
     console.log('here')
   }
