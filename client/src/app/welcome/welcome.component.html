@@ -1,8 +1,8 @@
 <h1 class>1000 Words
 
 <div class="loginBox">
-  <input placeholder="Email"/><br>
-  <input placeholder="Password" type="password" /><br>
+  <input [(ngModel)]="user.email" placeholder="Email"/><br>
+  <input [(ngModel)]="user.password" placeholder="Password" type="password" /><br>
   <button (click)="login()">Login</button>
   <a href='http://localhost:4200/register'>Register</a>
 </div>

@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     foreign_key: :friend1_id, #start to middlepoint
     association_foreign_key: :friend2_id #middle to end
 
+  has_secure_password
+
 end

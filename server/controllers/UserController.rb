@@ -25,13 +25,27 @@ class UserController < ApplicationController
     friends.to_json
   end
 
-  post '/' do
+  post '/register' do
     response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
     user_content = JSON.parse(request.body.read)
     user = User.new(user_content)
     user.token = SecureRandom.hex
     user.save
     user.to_json
+  end
+
+  post '/login' do
+    puts "here"
+    response['Access-Control-Allow-Origin'] = '*'
+    content_type :json
+    user_details = JSON.parse(request.body.read)
+    user = User.find_by({email: user_details["email"]})
+    if user && user.authenticate(user_details["password"])
+      user.to_json
+    else
+      {"response": "ACCESS DENIED"}.to_json
+    end
   end
 
   patch '/:id' do
