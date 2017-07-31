@@ -1,29 +1,60 @@
-<h2>Profile
+<div class="page">
+
+
   <button (click)="logout()" style="float: right;">Log out</button>
-</h2>
 
-<a href='http://localhost:4200/view'>See someone's 1000</a> <br>
+  <div class="container">
+    <div class="item">
+    <a href='http://localhost:4200/view'><h2>CONTEMPORARIES</h2></a>
+    </div>
+    <div class="item">
+      <a href="http://localhost:4200/interactions"><h2>HISTORY</h2></a>
+    </div>
+  </div>
 
-<a href="http://localhost:4200/interactions">Your Interactions</a>
+  <div class="container">
 
-<h3>Email: {{user.email}}</h3>
-<button (click)="editEmail()">Edit</button>
-<br>
-<h3> Change Password <br>
-  <input placeholder='current password'/><br>
-  <input placeholder='new password'/><br>
-  <input placeholder='confirm new password' /><br>
-  <button (click)="changePassword()">Submit</button>
-</h3>
-<h3> Your profile picture: </h3>
-<img src={{user.image_url}} alt="Profile Picture"/>
-<br>
-<button (click)="editPic()">Edit</button>
-<!-- <button type="upload">Change Photo</button> -->
+    <div class="profile item">
+      <div><h2 class="item">Profile</h2></div>
+    </div>
 
-<h3>Contact info:</h3>
-<p>{{user.contact_info}}</p>
-<button (click)="editContact()">Edit</button>
-<h3>Your bio:</h3>
-<h4 class="bio">{{user.bio}}</h4>
-<button (click)="editBio()">Edit</button>
+    <div class="bio item">
+      <h3>Your bio:</h3>
+      <h4>{{user.bio}}</h4>
+      <button (click)="editBio()">Edit</button>
+    </div>
+
+    <div class="email item">
+      <h3>{{user.email}}</h3>
+      <sub>Use a different email?</sub>
+      <button (click)="editEmail()">Change</button>
+    </div>
+
+
+    <div class="password item">
+      <h3> Change Password</h3>
+        <input placeholder='current password'/>
+        <input placeholder='new password'/>
+        <input placeholder='confirm new password' />
+        <button (click)="changePassword()">Submit</button>
+    </div>
+
+
+    <div class="pic item">
+      <h3>Photo</h3>
+      <img src="{{user.image_url}}" alt="Profile Picture"/>
+      <button (click)="editPic()">Edit</button>
+    </div>
+
+
+    <div class="contact item">
+      <h3>Contact info:</h3>
+      <p>{{user.contact_info}}</p>
+      <button (click)="editContact()">Edit</button>
+    </div>
+
+
+  </div>
+
+
+</div>

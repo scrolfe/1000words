@@ -1,17 +1,37 @@
-<h4 style="text-align: center;">Choose "like" or "pass" to move to the next reading!
+<div class="page">
 
-  <a (click)="logout()" href="#" style="float:right;"> Log out </a>
+  <div class="test container">
 
-</h4>
 
-<div style="background-color: grey;border-radius: 30px;padding: 25px;text-align:center;" >
-  <div>
-  <p style="text-align:left;">{{user.bio}}</p>
-  <button (click)="likeReaction(user.id)">Like</button>
-  <button (click)="passReaction()">Pass</button>
+    <div class="nav container">
+      <div class="item">
+        <a href="http://localhost:4200/profile"><h2>PROFILE</h2></a>
+      </div>
+      <div class="item">
+        <a href="http://localhost:4200/interactions"><h2>INTERACTIONS</h2></a>
+      </div>
+      <div class="item">
+        <a href="http://localhost:4200/friends"><h2>LIKED YOU BACK</h2></a>
+      </div>
+
+    </div>
+
+    <div class="view container">
+      <div class="instructions item">
+        <h4>Choose "like" or "pass" to move to the next reading!</h4>
+      </div>
+
+      <div class="bio item">
+        <p>{{user.bio}}</p>
+      </div>
+
+      <div class="like item">
+        <button (click)="likeReaction(user.id)">Like</button>
+        <button (click)="passReaction()">Pass</button>
+      </div>
+
+    </div>
+
   </div>
-</div>
 
-<a href="http://localhost:4200/profile">To profile</a><br>
-<a href="http://localhost:4200/interactions">See interactions you've made</a><br>
-<a href="http://localhost:4200/friends">See friends you've made</a>
+</div>
