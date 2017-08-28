@@ -22,7 +22,10 @@ class ReactionController < ApplicationController
     content_type :json
     reaction_content = JSON.parse(request.body.read)
     reaction = Reaction.new(reaction_content)
+    # find reactions where 'the reader reacts to the writer and the writer reacts to the reader' is true
     if Reaction.find_by(reader_id: reaction_content["writer_id"], writer_id: reaction_content["reader_id"])
+      # TODO do both of these objects need to be created?
+      # create new friend object for friend1
       friend = Friend.new(friend1_id: reaction_content["reader_id"], friend2_id: reaction_content["writer_id"])
       friend.save
       friend2 = Friend.new(friend2_id: reaction_content["reader_id"], friend1_id: reaction_content["writer_id"])
@@ -52,8 +55,7 @@ class ReactionController < ApplicationController
     id = params[:id]
     reaction = Reaction.find(id)
     reaction.destroy
+    reactions = Reaction.all
     reactions.to_json
   end
 end
-
-#TODO: proofread

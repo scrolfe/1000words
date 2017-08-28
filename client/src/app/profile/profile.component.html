@@ -3,31 +3,44 @@
 
   <button (click)="logout()" style="float: right;">Log out</button>
 
-  <div class="container">
-    <div class="item">
-    <a href='http://localhost:4200/view'><h2>CONTEMPORARIES</h2></a>
+  <div class="">
+    <div class="index item">
+    <a href='/view'><h2>CONTEMPORARIES</h2></a>
     </div>
     <div class="item">
-      <a href="http://localhost:4200/interactions"><h2>HISTORY</h2></a>
+      <a href="/interactions"><h2>HISTORY</h2></a>
+    </div>
+    <div class="item">
+      <a href="/friends"><h2>FRIENDS</h2></a>
     </div>
   </div>
 
-  <div class="container">
-
+  <div class="">
     <div class="profile item">
       <div><h2 class="item">Profile</h2></div>
     </div>
 
     <div class="bio item">
-      <h3>Your bio:</h3>
+      <h3>Your writing sample:</h3>
       <h4>{{user.bio}}</h4>
-      <button (click)="editBio()">Edit</button>
+      <form>
+        <button (click)="editBio()">Edit</button>
+      </form>
+    </div>
+
+    <div class="display_name item">
+      <h3>{{user.display_name}}</h3>
+      <form>
+        <button (click)="editName()">Change display name?</button>
+      </form>
     </div>
 
     <div class="email item">
       <h3>{{user.email}}</h3>
       <sub>Use a different email?</sub>
-      <button (click)="editEmail()">Change</button>
+      <form>
+        <button (click)="editEmail()">Change</button>
+      </form>
     </div>
 
 
@@ -36,21 +49,27 @@
         <input placeholder='current password'/>
         <input placeholder='new password'/>
         <input placeholder='confirm new password' />
-        <button (click)="changePassword()">Submit</button>
+        <form>
+          <button (click)="changePassword()">Submit</button>
+        </form>
     </div>
 
 
     <div class="pic item">
       <h3>Photo</h3>
       <img src="{{user.image_url}}" alt="Profile Picture"/>
-      <button (click)="editPic()">Edit</button>
+      <form>
+        <button (click)="editPic()">Edit</button>
+      </form>
     </div>
 
 
     <div class="contact item">
       <h3>Contact info:</h3>
       <p>{{user.contact_info}}</p>
-      <button (click)="editContact()">Edit</button>
+      <form>
+        <button (click)="editContact()">Edit</button>
+      </form>
     </div>
 
 

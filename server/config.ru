@@ -1,24 +1,37 @@
 require 'bundler'
 Bundler.require
 
-require './models/MessageModel'
 require './models/UserModel'
 require './models/ReactionModel'
 require './models/FriendModel'
 
 require './controllers/ApplicationController'
-require './controllers/MessageController'
 require './controllers/UserController'
 require './controllers/ReactionController'
+require './controllers/FriendController'
 
 run Sinatra::Application
 
-ActiveRecord::Base.establish_connection(
-  adapter: 'postgresql',
-  database: 'thousand_words'
-)
+
+if ENV['DATABASE_URL']
+  db = URI.parse(ENV['DATABASE_URL'])
+  ActiveRecord::Base.establish_connection(
+    adapter: 'postgresql',
+    host: db.host,
+    port: db.port,
+    username: db.user,
+    password: db.password,
+    database: db.path[1..-1],
+    encoding: 'utf8'
+  )
+else
+  ActiveRecord::Base.establish_connection(
+    adapter: 'postgresql',
+    database: 'thousand_words'
+  )
+end
+
 
 map('/users'){run UserController}
-map('/messages'){run MessageController}
 map('/reactions'){run ReactionController}
-# map('/friends'){run }
+map('/friends'){run FriendController}

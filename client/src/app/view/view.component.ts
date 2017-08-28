@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 class User{
   id: number;
+  display_name: string;
   email: string;
   password: string;
   contact_info: string;
@@ -29,7 +30,6 @@ export class ViewComponent {
   reactions: Reaction[] = [];
   newReaction: Reaction = new Reaction();
   userIterator: number = 0
-  // updateReaction: Reaction = new Reaction();
 
   constructor(private http: Http, private router: Router){
     this.getUsers();
@@ -37,9 +37,9 @@ export class ViewComponent {
 
   getUsers(){
     console.log('here')
-    this.http.get('http://localhost:9393/users').subscribe(response => {
+    this.http.get('https://thousand-words-server.herokuapp.com/users').subscribe(response => {
       this.users = response.json() // bios loaded into json array
-      this.user = this.users[this.userIterator]
+      this.user = this.users[this.userIterator] //this is where to add randomness factor
     },
     err => {
       console.log('getUsers error')
@@ -47,7 +47,7 @@ export class ViewComponent {
   }
 
   postReaction(){
-    this.http.post('http://localhost:9393/reactions', this.newReaction).subscribe(response => {
+    this.http.post('https://thousand-words-server.herokuapp.com/reactions', this.newReaction).subscribe(response => {
       this.reactions = response.json()
     },
     err => {
@@ -55,31 +55,24 @@ export class ViewComponent {
     })
   }
 
-  // TODO:
-  // randomBio(){
-  //
-  // }
-  //
+  // TODO: shuffle users on like or pass
+
   likeReaction(writer_id){
     // grab ID of current user. push that id as reader_id for bio of sender_id
-    this.http.post('http://localhost:9393/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
-      console.log(response)
-      this.user = this.users[this.userIterator]
+    this.http.post('https://thousand-words-server.herokuapp.com/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
       this.userIterator += 1
-
+      this.user = this.users[this.userIterator]
     })
   }
 
   passReaction(){
-    this.http.get('http://localhost:9393/reactions').subscribe(response => {
-      this.user = this.users[this.userIterator]
-      this.userIterator += 1
-    })
+    this.userIterator += 1
+    this.user = this.users[this.userIterator]
   }
 
   logout(){
+    this.router.navigate(['/welcome'])
     window.localStorage.clear()
-    this.router.navigate(['http://localhost:4200/welcome'])
   }
 
 

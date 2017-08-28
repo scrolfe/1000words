@@ -1,0 +1,26 @@
+.page {
+  background: url('http://az616578.vo.msecnd.net/files/2017/01/14/636200150034011507-1107693164_EP%20-%20Can%20Literature%20Teach%20Business.jpg') no-repeat center fixed;
+  height: 100vh;
+  background-size: cover;
+  font-family: 'Spectral', serif;
+}
+
+.title{
+  background: white;
+}
+
+/*.{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  border-radius: 5px;
+  float: left;
+
+
+}
+
+.item{
+  flex: none;
+  background-color: white;
+  margin: auto;
+}*/

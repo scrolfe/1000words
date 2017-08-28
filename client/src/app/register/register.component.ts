@@ -3,6 +3,7 @@ import {Http, Response } from '@angular/http'
 import { Router } from '@angular/router'
 
 class User{
+  display_name: string;
   email: string;
   password: string;
   contact_info: string;
@@ -26,7 +27,8 @@ export class RegisterComponent implements OnInit {
   }
 
   postRegister(){
-    this.http.post('http://localhost:9393/users/register', this.user).subscribe(response => {
+    this.http.post('https://thousand-words-server.herokuapp.com/users/register', this.user)
+    .subscribe(response => {
       window.localStorage.setItem('token',response.json().token)
       window.localStorage.setItem('user_id', response.json().id)
       this.router.navigate(['/profile'])
@@ -34,4 +36,5 @@ export class RegisterComponent implements OnInit {
       console.log('postRegister error')
     })
   }
+
 }

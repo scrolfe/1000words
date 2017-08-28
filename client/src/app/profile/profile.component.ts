@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http'
 import { Router } from '@angular/router'
 
 class User{
+  display_name: string;
   email: string;
   password: string;
   contact_info: string;
@@ -17,6 +18,7 @@ class User{
 })
 export class ProfileComponent implements OnInit {
   user = {}
+  updateUser: User = new User()
 
   constructor(private http: Http, private router: Router) {
     this.getProfile();
@@ -26,7 +28,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(){
-    this.http.get('http://localhost:9393/users/' + window.localStorage.token).subscribe(response => {
+    this.http.get('https://thousand-words-server.herokuapp.com/users/' + window.localStorage.token).subscribe(response => {
       this.user = response.json()
     })
   }
@@ -35,9 +37,12 @@ export class ProfileComponent implements OnInit {
     window.localStorage.clear()
     this.router.navigate(['/welcome'])
   }
-  // patchProfile(){
-  //   this.http.patch()
-  // }
+
+  patchProfile(){
+    this.http.patch('https://thousand-words-server.herokuapp.com/users/' + window.localStorage.token, this.updateUser).subscribe(response => {
+      this.user = response.json()
+    })
+  }
   //
   // deleteProfile(){
   //   this.http.delete()

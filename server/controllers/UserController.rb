@@ -1,12 +1,13 @@
 require "securerandom"
+require "pry"
 
 class UserController < ApplicationController
 
   get '/' do
     response['Access-Control-Allow-Origin'] = '*'
     users = User.all
-    users.to_json
-
+    shuffled = users.shuffle
+    shuffled.to_json
   end
 
   get '/:token' do
@@ -36,7 +37,6 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    puts "here"
     response['Access-Control-Allow-Origin'] = '*'
     content_type :json
     user_details = JSON.parse(request.body.read)
@@ -65,6 +65,5 @@ class UserController < ApplicationController
     user.destroy
     User.all.to_json
   end
-end
 
-#TODO: proofread
+end

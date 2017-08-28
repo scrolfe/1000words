@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http'
 
 class User{
+  display_name: string;
   email: string;
   password: string;
   contact_info: string;
@@ -24,7 +25,7 @@ export class FriendsComponent implements OnInit {
   }
 
 getFriends() {
-  this.http.get('http://localhost:9393/users/friends/' + window.localStorage.token).subscribe(response=> {
+  this.http.get('https://thousand-words-server.herokuapp.com/users/friends/' + window.localStorage.token).subscribe(response=> {
     this.friends = response.json()
   })
 }

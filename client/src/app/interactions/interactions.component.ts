@@ -3,6 +3,7 @@ import {Http, Response } from '@angular/http'
 import { Router } from '@angular/router'
 
 class User{
+  display_name: string;
   email: string;
   password: string;
   contact_info: string;
@@ -27,7 +28,7 @@ export class InteractionsComponent implements OnInit {
   //
   getInteraction(){
     console.log('hi')
-    this.http.get('http://localhost:9393/reactions/' + window.localStorage.token).subscribe(response => {
+    this.http.get('https://thousand-words-server.herokuapp.com/reactions/' + window.localStorage.token).subscribe(response => {
       console.log(response.json())
       this.users = response.json()
     })
