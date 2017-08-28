@@ -37,7 +37,7 @@ export class ViewComponent {
 
   getUsers(){
     console.log('here')
-    this.http.get('https://thousand-words-server.herokuapp.com/users').subscribe(response => {
+    this.http.get('https://localhost:9393/users').subscribe(response => {
       this.users = response.json() // bios loaded into json array
       this.user = this.users[this.userIterator] //this is where to add randomness factor
     },
@@ -47,7 +47,7 @@ export class ViewComponent {
   }
 
   postReaction(){
-    this.http.post('https://thousand-words-server.herokuapp.com/reactions', this.newReaction).subscribe(response => {
+    this.http.post('https://localhost:9393/reactions', this.newReaction).subscribe(response => {
       this.reactions = response.json()
     },
     err => {
@@ -59,7 +59,7 @@ export class ViewComponent {
 
   likeReaction(writer_id){
     // grab ID of current user. push that id as reader_id for bio of sender_id
-    this.http.post('https://thousand-words-server.herokuapp.com/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
+    this.http.post('https://localhost:9393/reactions', {reader_id: window.localStorage.user_id, writer_id: writer_id}).subscribe(response => {
       this.userIterator += 1
       this.user = this.users[this.userIterator]
     })

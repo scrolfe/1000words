@@ -28,7 +28,7 @@ export class InteractionsComponent implements OnInit {
   //
   getInteraction(){
     console.log('hi')
-    this.http.get('https://thousand-words-server.herokuapp.com/reactions/' + window.localStorage.token).subscribe(response => {
+    this.http.get('https://localhost:9393/reactions/' + window.localStorage.token).subscribe(response => {
       console.log(response.json())
       this.users = response.json()
     })

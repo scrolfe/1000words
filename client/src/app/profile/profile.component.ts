@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(){
-    this.http.get('https://thousand-words-server.herokuapp.com/users/' + window.localStorage.token).subscribe(response => {
+    this.http.get('https://localhost:9393/users/' + window.localStorage.token).subscribe(response => {
       this.user = response.json()
     })
   }
@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
 
   patchProfile(){
-    this.http.patch('https://thousand-words-server.herokuapp.com/users/' + window.localStorage.token, this.updateUser).subscribe(response => {
+    this.http.patch('https://localhost:9393/users/' + window.localStorage.token, this.updateUser).subscribe(response => {
       this.user = response.json()
     })
   }

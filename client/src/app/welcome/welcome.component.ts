@@ -28,7 +28,7 @@ export class WelcomeComponent implements OnInit {
 
 
   login(){
-    this.http.post('https://thousand-words-server.herokuapp.com/users/login', this.user).subscribe(response => {
+    this.http.post('https://localhost:9393/users/login', this.user).subscribe(response => {
       window.localStorage.setItem("token",response.json().token)
       window.localStorage.setItem("user_id",response.json().id)
 

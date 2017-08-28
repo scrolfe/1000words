@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   }
 
   postRegister(){
-    this.http.post('https://thousand-words-server.herokuapp.com/users/register', this.user)
+    this.http.post('https://localhost:9393/users/register', this.user)
     .subscribe(response => {
       window.localStorage.setItem('token',response.json().token)
       window.localStorage.setItem('user_id', response.json().id)
